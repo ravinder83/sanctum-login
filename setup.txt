@@ -1,0 +1,12 @@
+Providers -> RouteServiceProvider (We will change set of route prefix)
+
+Generating token when user is logged in or register
+    - $token = $user->createToken($request->email)->plainTextToken;
+
+deleting token at the time of logout
+    - auth()->user()->tokens()->delete();
+    - auth('sanctum')->user()->tokens()->delete();
+
+We can get the data uf logged in user using the sanctum auth() function
+    - auth('sanctum')->user();      (when passing bearer in auth)
+    - auth()->user()                (when passing bearer in Authorization in header)
