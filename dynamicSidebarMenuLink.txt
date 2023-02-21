@@ -1,0 +1,32 @@
+<?php
+1- create an array of all the url
+$links = array(
+  array('url' => '/admin/index.php', 'title' => 'Dashboard', 'iconClass'=>'menu-icon tf-icons bx bx-home-circle'),
+  array('url' => '/admin/member/list.php', 'title' => 'Member', 'iconClass'=>'menu-icon tf-icons bx bx-user'),
+  array('url' => '/admin/index.php', 'title' => 'Article', 'iconClass'=>'menu-icon tf-icons bx bx-notepad')
+);
+
+?>
+
+2- loop all the above url in the side bar code
+
+    <div class="sidebar">
+    <ul class="menu-inner py-1">
+        <?php foreach ($links as $link) { ?>
+        <li class="menu-item">
+            <a href="<?php echo $link['url']; ?>" class="menu-link <?php echo ($_SERVER['PHP_SELF'] == $link['url']) ? 'active' : ''; ?>">
+            <i class="<?php echo $link['iconClass']; ?>"></i>
+                <?php echo $link['title']; ?>
+            </a>
+        </a>
+        </li>
+        <?php } ?>
+    </ul>
+    </div>
+
+3- add this in your css
+
+.sidebar a.active {
+  font-weight: bold;
+  background-color: rgba(67, 89, 113, 0.04);
+}
